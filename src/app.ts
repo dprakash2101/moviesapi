@@ -1,4 +1,4 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response} from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import movieRoutes from './routes/movieRoutes';
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/api', movieRoutes);
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+app.use((err: Error, req: Request, res: Response) => {
   console.error(err.stack);
   res.status(500).json({ error: 'Internal server error' });
 });
