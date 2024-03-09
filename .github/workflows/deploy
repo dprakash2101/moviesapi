@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - workingb
+      - main
   pull_request:
     types:
       - closed
