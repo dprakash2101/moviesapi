@@ -5,6 +5,8 @@ const router = Router();
 
 router.get('/movies', movieController.getAllMovies);
 router.post('/movies', movieController.addMovie);
-// Add routes for updating, deleting movies
-
+router.get('/search/title', movieController.searchByTitle); 
+router.get('/search/genre', movieController.searchByGenre);
+router.put('/movies/title/:title', movieController.updateMovie);
+router.delete('/movies/title/:title', movieController.deleteMovie);
 export default router;
