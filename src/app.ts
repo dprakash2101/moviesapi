@@ -1,20 +1,16 @@
-import express, { Application, Request, Response} from 'express';
+import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import movieRoutes from './routes/movieRoutes';
 
 dotenv.config();
 
-const app: Application = express();
-
+const app = express();
 app.use(express.json());
 app.use('/api', movieRoutes);
 
 // Error handling middleware
-app.use((err: Error, req: Request, res: Response) => {
-  console.error(err.stack);
-  res.status(500).json({ error: 'Internal server error' });
-});
+
 
 const PORT = process.env.PORT || 3000;
 
