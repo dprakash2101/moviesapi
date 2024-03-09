@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PORT: ${{ secrets.PORT }}
-      MONGODB_URI: ${{secrets.MONGODB_URI}}
-      JWT_SECRET: ${{secrets.JWT_SECRET}}
+      MONGODB_URI: ${{ secrets.MONGODB_URI }}
+      JWT_SECRET: ${{ secrets.JWT_SECRET }}
 
     steps:
       - name: Checkout code
@@ -46,4 +46,3 @@ jobs:
         with:
           push: true
           tags: dprakash0321/moviesapi:latest
-
