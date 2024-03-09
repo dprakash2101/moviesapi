@@ -7,16 +7,20 @@ WORKDIR /app
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
 
-COPY src ./src
-
-# Install dependencies
-RUN npm install
+# Install dependencies using npm ci
+RUN npm ci --only=production
 
 # Copy the rest of the application code to the working directory
-COPY . .
+COPY src ./src
 
-# Expose any ports the app is listening on
+# Copy tsconfig.json to the working directory
+COPY tsconfig.json ./
+
+# Compile TypeScript code
+RUN npm run build
+
+# Expose port 3000
 EXPOSE 3000
 
-# Start the app
-CMD ["npm", "start"]
+# Start the app (assuming your entry point is dist/app.js after building)
+CMD ["node", "./src/app.ts"]
