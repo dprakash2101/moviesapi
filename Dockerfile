@@ -15,6 +15,7 @@ COPY src ./src
 
 # Copy tsconfig.json to the working directory
 COPY tsconfig.json ./
+RUN npm install -g nodemon
 
 # If you're running the application in development, use ts-node
 # Otherwise, transpile TypeScript to JavaScript
