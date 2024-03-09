@@ -5,7 +5,8 @@
   "main": "app.js", 
   "scripts": {
     "start": "nodemon --watch src --exec ts-node src/app.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint-check": "eslint ."
   },
   "author": "Devi Prakash Kandikonda",
   "license": "MIT",
