@@ -13,10 +13,14 @@ RUN npm ci --only=production
 # Copy the rest of the application code to the working directory
 COPY src ./src
 
+# Copy tsconfig.json to the working directory
+COPY tsconfig.json ./
+
+# Compile TypeScript code
+RUN npm run build
+
 # Expose port 3000
 EXPOSE 3000
 
-
-
 # Start the app (assuming your entry point is dist/app.js after building)
-CMD ["node", "./src/app.ts"]
+CMD ["node", "./dist/app.js"]
