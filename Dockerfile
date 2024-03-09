@@ -23,4 +23,4 @@ RUN npm run build
 EXPOSE 3000
 
 # Start the app (assuming your entry point is dist/app.js after building)
-CMD ["node", "./dist/app.js"]
+CMD ["node", "./src/app.ts"]
