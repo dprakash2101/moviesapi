@@ -16,11 +16,13 @@ COPY src ./src
 # Copy tsconfig.json to the working directory
 COPY tsconfig.json ./
 
-# Compile TypeScript code
-RUN npm run build
+# If you're running the application in development, use ts-node
+# Otherwise, transpile TypeScript to JavaScript
+RUN npm install -g typescript
+RUN if [ "$NODE_ENV" = "development" ]; then npm install -g ts-node; else npm run build; fi
 
 # Expose port 3000
 EXPOSE 3000
 
-# Start the app (assuming your entry point is dist/app.js after building)
-CMD ["node", "./src/app.ts"]
+# Start the app
+CMD [ "npm", "start" ]
