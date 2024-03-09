@@ -16,5 +16,5 @@ COPY . .
 # Expose any ports the app is listening on
 EXPOSE 3000
 
-# Start the app
+# Start the apps 
 CMD ["npm", "start"]
