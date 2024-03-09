@@ -9,8 +9,5 @@
   ],
   "exclude": [
     "node_modules"
-  ],
-  "dotenv": {
-    "path": ".env"
-  }
+  ]
 }
